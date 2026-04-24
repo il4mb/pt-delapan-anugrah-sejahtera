@@ -67,6 +67,9 @@ type RootLayoutProps = {
 export default function RootLayout({ children }: Readonly<RootLayoutProps>) {
     return (
         <html lang="id">
+            <head>
+                <meta name="apple-mobile-web-app-title" content="DELAPAN ANUGRAH SEJAHTERA, PT." />
+            </head>
             <body>
                 <Theme>
                     <Navbar />

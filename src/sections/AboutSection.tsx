@@ -3,17 +3,15 @@
 import { Box, Container, Grid, Typography, Button, Stack, useTheme, alpha } from '@mui/material';
 import { motion } from 'motion/react';
 import { ABOUT_COMPANY, COMPANY_ADVANTAGES } from '@/data/company';
-import { slideInLeftVariant, slideInRightVariant } from '@/utils/animations';
 import Link from 'next/link';
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
-const MotionBox = motion(Box);
+const MotionBox = motion.create(Box);
 
 export default function AboutSection() {
     const theme = useTheme();
 
     return (
-        <Box sx={{ py: 10, backgroundColor: 'background.paper' }}>
+        <Box sx={{ py: 10, backgroundColor: 'background.paper', maxWidth: '100vw', overflowX: 'hidden' }}>
             <Container maxWidth="lg">
                 <Grid container spacing={6} sx={{ alignItems: "center" }}>
                     {/* Left Side - Image/Content */}

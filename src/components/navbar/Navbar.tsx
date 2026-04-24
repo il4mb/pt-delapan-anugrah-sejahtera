@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { Fragment, useState } from 'react';
 import {
     AppBar,
     Box,
@@ -25,6 +25,7 @@ import { COMPANY_INFO } from '@/data/company';
 import { useTheme } from '@mui/material/styles';
 import { Logo } from '@/icons/Logo';
 import DarkModeToggle from '../buttons/DarkModeToggle';
+import { usePathname } from 'next/navigation';
 
 const navItems = [
     { label: 'Beranda', href: '/' },
@@ -36,6 +37,8 @@ const navItems = [
 ];
 
 export default function Navbar() {
+
+    const pathname = usePathname();
     const [mobileOpen, setMobileOpen] = useState(false);
     const theme = useTheme();
     const trigger = useScrollTrigger({
@@ -46,6 +49,60 @@ export default function Navbar() {
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
     };
+
+    const renderDesktopLink = (item: { label: string; href: string }) => {
+        const isActive = pathname === item.href;
+        return (
+            <Button
+                key={item.label}
+                component={Link}
+                href={item.href}
+                sx={{
+                    color: trigger ? 'text.primary' : 'white',
+                    textTransform: 'none',
+                    fontSize: '15px',
+                    position: 'relative',
+                    fontWeight: 500,
+                    '&::after': {
+                        content: '""',
+                        position: 'absolute',
+                        bottom: -2,
+                        left: 0,
+                        width: isActive ? '100%' : 0,
+                        height: 2,
+                        backgroundColor: 'warning.main',
+                        transition: 'width 0.3s ease-in-out',
+                    },
+                    '&:hover::after': {
+                        width: '100%',
+                    },
+                }}>
+                {item.label}
+            </Button>
+        )
+    }
+
+    const renderMobileLink = (item: { label: string; href: string, index: number }) => {
+        const isActive = pathname === item.href;
+        return (
+            <ListItem key={item.index} disablePadding sx={{ mb: 1 }}>
+                <ListItemButton
+                    component={Link}
+                    href={item.href}
+                    sx={{
+                        color: 'text.primary',
+                        backgroundColor: isActive ? alpha(theme.palette.primary.main, 0.1) : 'transparent',
+                        '&:hover': {
+                            backgroundColor: alpha(theme.palette.primary.main, 0.1),
+                            color: 'primary.main',
+                        },
+                    }}
+                    onClick={handleDrawerToggle}>
+                    <ListItemText primary={item.label} />
+                </ListItemButton>
+            </ListItem>
+        )
+    }
 
     const drawer = (
         <Box sx={{ p: 2, flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
@@ -61,23 +118,10 @@ export default function Navbar() {
                 </IconButton>
             </Box>
             <List sx={{ flex: 1 }}>
-                {navItems.map((item) => (
-                    <ListItem key={item.label} disablePadding sx={{ mb: 1 }}>
-                        <ListItemButton
-                            component={Link}
-                            href={item.href}
-                            sx={{
-                                color: 'text.primary',
-                                '&:hover': {
-                                    backgroundColor: alpha(theme.palette.primary.main, 0.1),
-                                    color: 'primary.main',
-                                },
-                            }}
-                            onClick={handleDrawerToggle}
-                        >
-                            <ListItemText primary={item.label} />
-                        </ListItemButton>
-                    </ListItem>
+                {navItems.map((item, i) => (
+                    <Fragment key={i}>
+                        {renderMobileLink({ ...item, index: i })}
+                    </Fragment>
                 ))}
             </List>
             <Button
@@ -155,43 +199,19 @@ export default function Navbar() {
 
                         {/* Desktop Navigation */}
                         <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 0.5, alignItems: 'center' }}>
-                            {navItems.map((item) => (
-                                <Button
-                                    key={item.label}
-                                    component={Link}
-                                    href={item.href}
-                                    sx={{
-                                        color: trigger ? 'text.primary' : 'white',
-                                        textTransform: 'none',
-                                        fontSize: '15px',
-                                        position: 'relative',
-                                        fontWeight: 500,
-                                        '&::after': {
-                                            content: '""',
-                                            position: 'absolute',
-                                            bottom: -2,
-                                            left: 0,
-                                            width: 0,
-                                            height: 2,
-                                            backgroundColor: 'warning.main',
-                                            transition: 'width 0.3s ease-in-out',
-                                        },
-                                        '&:hover::after': {
-                                            width: '100%',
-                                        },
-                                    }}
-                                >
-                                    {item.label}
-                                </Button>
+                            {navItems.map((item, i) => (
+                                <Fragment key={i}>
+                                    {renderDesktopLink(item)}
+                                </Fragment>
                             ))}
                             <Stack
                                 direction="row"
-                                spacing={1}>
+                                spacing={1}
+                                sx={{ ml: 2, alignItems: 'center' }}>
                                 <Button
                                     variant="contained"
                                     color="warning"
                                     sx={{
-                                        ml: 2,
                                         textTransform: 'none',
                                         fontWeight: 600,
                                         px: 3,
