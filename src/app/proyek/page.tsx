@@ -1,4 +1,5 @@
-"use client";
+'use client';
+
 import { Container, Box, Typography, Grid, Button } from '@mui/material';
 import Link from 'next/link';
 import { PROJECTS } from '@/data/company';
@@ -17,7 +18,7 @@ export default function ProjectsPage() {
                 }}
             >
                 <Container maxWidth="lg">
-                    <Typography variant="h3" sx={{ fontWeight: 700, mb: 2 }}>
+                    <Typography component="h1" variant="h3" sx={{ fontWeight: 700, mb: 2 }}>
                         Proyek & Portfolio
                     </Typography>
                     <Typography variant="h6" sx={{ fontWeight: 400, opacity: 0.9 }}>

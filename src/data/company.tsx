@@ -9,8 +9,8 @@ export const COMPANY_INFO = {
     location: 'Kabupaten Siak, Riau, Indonesia',
     phone: '+62 (0)761 123 456',
     whatsapp: '+62 812 3456 7890',
-    email: 'info@ptdas.co.id',
-    website: 'https://ptdas.co.id',
+    email: 'info@delapan-anugrah-sejahtera.com',
+    website: 'https://delapan-anugrah-sejahtera.com',
 };
 
 export const HERO_SECTION = {

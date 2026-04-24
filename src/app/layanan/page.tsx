@@ -1,12 +1,8 @@
-import { Metadata } from 'next';
+'use client';
+
 import { Container, Box, Typography, Grid } from '@mui/material';
 import { SERVICES } from '@/data/company';
 import ServiceCardComponent from '@/components/cards/ServiceCard';
-
-export const metadata: Metadata = {
-    title: 'Layanan | PT. DELAPAN ANUGRAH SEJAHTERA',
-    description: 'Jelajahi semua layanan kami mulai dari konstruksi, infrastruktur, real estate, pertambangan, hingga jasa pendukung bisnis.',
-};
 
 export default function ServicesPage() {
     return (
@@ -21,7 +17,7 @@ export default function ServicesPage() {
                 }}
             >
                 <Container maxWidth="lg">
-                    <Typography variant="h3" sx={{ fontWeight: 700, mb: 2 }}>
+                    <Typography component="h1" variant="h3" sx={{ fontWeight: 700, mb: 2 }}>
                         Layanan Kami
                     </Typography>
                     <Typography variant="h6" sx={{ fontWeight: 400, opacity: 0.9 }}>

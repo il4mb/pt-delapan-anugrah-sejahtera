@@ -1,12 +1,8 @@
-import { Metadata } from 'next';
+'use client';
+
 import { Container, Box, Typography, Grid, Stack } from '@mui/material';
 import { ABOUT_COMPANY, COMPANY_ADVANTAGES } from '@/data/company';
 import { Target } from 'lucide-react';
-
-export const metadata: Metadata = {
-    title: 'Tentang Kami | PT. DELAPAN ANUGRAH SEJAHTERA',
-    description: 'Pelajari sejarah, visi, misi, dan nilai-nilai PT. DELAPAN ANUGRAH SEJAHTERA, perusahaan profesional bidang konstruksi dan bisnis.',
-};
 
 export default function AboutPage() {
     return (
@@ -20,7 +16,7 @@ export default function AboutPage() {
                     color: 'white',
                 }}>
                 <Container maxWidth="lg">
-                    <Typography variant="h3" sx={{ fontWeight: 700, mb: 2 }}>
+                    <Typography component="h1" variant="h3" sx={{ fontWeight: 700, mb: 2 }}>
                         Tentang PT. DELAPAN ANUGRAH SEJAHTERA
                     </Typography>
                     <Typography variant="h6" sx={{ fontWeight: 400, opacity: 0.9 }}>

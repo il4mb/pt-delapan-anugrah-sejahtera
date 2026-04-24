@@ -1,4 +1,5 @@
-import { Metadata } from 'next';
+'use client';
+
 import {
     Container,
     Box,
@@ -12,11 +13,6 @@ import {
 import { LEGALITY } from '@/data/company';
 import VerifiedIcon from '@mui/icons-material/Verified';
 
-export const metadata: Metadata = {
-    title: 'Legalitas & Sertifikasi | PT. DELAPAN ANUGRAH SEJAHTERA',
-    description: 'Informasi lengkap tentang legalitas perusahaan, perizinan, dan sertifikasi PT. DELAPAN ANUGRAH SEJAHTERA.',
-};
-
 export default function LegalityPage() {
     return (
         <Box>
@@ -29,7 +25,7 @@ export default function LegalityPage() {
                     color: 'white',
                 }}>
                 <Container maxWidth="lg">
-                    <Typography variant="h3" sx={{ fontWeight: 700, mb: 2 }}>
+                    <Typography component="h1" variant="h3" sx={{ fontWeight: 700, mb: 2 }}>
                         Legalitas & Sertifikasi
                     </Typography>
                     <Typography variant="h6" sx={{ fontWeight: 400, opacity: 0.9 }}>

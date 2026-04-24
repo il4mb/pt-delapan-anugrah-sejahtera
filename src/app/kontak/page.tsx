@@ -23,7 +23,7 @@ export default function ContactPage() {
                     color: 'white',
                 }}>
                 <Container maxWidth="lg">
-                    <Typography variant="h3" sx={{ fontWeight: 700, mb: 2 }}>
+                    <Typography component="h1" variant="h3" sx={{ fontWeight: 700, mb: 2 }}>
                         Hubungi Kami
                     </Typography>
                     <Typography variant="h6" sx={{ fontWeight: 400, opacity: 0.9 }}>
