@@ -51,6 +51,7 @@ export default function Theme({ children, disableCustomTheme, themeComponents }:
 
 	useEffect(() => {
 		setMounted(true);
+		localStorage.setItem('mui-mode', 'light');
 	}, [])
 
 	if (!mounted) return null;
