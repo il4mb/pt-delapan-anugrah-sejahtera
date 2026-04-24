@@ -79,7 +79,7 @@ export default function CTASection() {
             waktu yang efisien.
           </Typography>
 
-          <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} justifyContent="center">
+          <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} sx={{ justifyContent: "center" }}>
             <MotionButton
               component={Link}
               href="/kontak"
