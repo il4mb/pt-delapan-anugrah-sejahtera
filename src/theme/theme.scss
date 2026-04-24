@@ -17,7 +17,10 @@ body {
     flex-direction: column;
     font-family: Figtree, Arial, Helvetica, sans-serif;
 }
-
+html[data-color-scheme="dark"] {
+    background-color: #121212;
+    color: #e0e0e0;
+}
 input:-internal-autofill-selected {
     background-color: inherit !important;
 }

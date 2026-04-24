@@ -106,7 +106,12 @@ export default function AboutSection() {
                                     {ABOUT_COMPANY.values.map((value, idx) => (
                                         <Grid size={{ xs: 6 }} key={idx}>
                                             <Box sx={{ display: 'flex', gap: 1 }}>
-                                                <CheckCircleIcon sx={{ color: 'success.main', flexShrink: 0 }} />
+                                                <Box
+                                                    component={"img"}
+                                                    src={value.image}
+                                                    alt={value.title}
+                                                    sx={{ width: 25, height: 25 }}
+                                                />
                                                 <Box>
                                                     <Typography variant="subtitle2" sx={{ fontWeight: 600 }}>
                                                         {value.title}
@@ -135,8 +140,7 @@ export default function AboutSection() {
                                     fontSize: '15px',
                                     fontWeight: 600,
                                     borderRadius: '8px',
-                                }}
-                            >
+                                }}>
                                 Pelajari Lebih Lanjut →
                             </Button>
                         </MotionBox>
@@ -150,8 +154,7 @@ export default function AboutSection() {
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6 }}
                         viewport={{ once: true }}
-                        sx={{ textAlign: 'center', mb: 6 }}
-                    >
+                        sx={{ textAlign: 'center', mb: 6 }}>
                         <Typography variant="h4" sx={{ fontWeight: 700, mb: 2 }}>
                             Keunggulan Kami
                         </Typography>
@@ -167,8 +170,8 @@ export default function AboutSection() {
                                     initial={{ opacity: 0, y: 20 }}
                                     whileInView={{ opacity: 1, y: 0 }}
                                     transition={{ duration: 0.5, delay: idx * 0.1 }}
-                                    viewport={{ once: true }}
-                                    sx={{
+                                    viewport={{ once: true }}>
+                                    <Box sx={{
                                         p: 3,
                                         borderRadius: '8px',
                                         backgroundColor: 'background.default',
@@ -179,15 +182,20 @@ export default function AboutSection() {
                                             boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
                                             borderColor: 'primary.main',
                                         },
-                                    }}
-                                >
-                                    <Box sx={{ fontSize: '48px', mb: 2 }}>{advantage.icon}</Box>
-                                    <Typography variant="h6" sx={{ fontWeight: 700, mb: 1 }}>
-                                        {advantage.title}
-                                    </Typography>
-                                    <Typography variant="body2" color="text.secondary">
-                                        {advantage.description}
-                                    </Typography>
+                                    }}>
+                                        <Box
+                                            component="img"
+                                            src={advantage.image}
+                                            alt={advantage.title}
+                                            sx={{ width: 50, height: 50, mb: 2, objectFit: 'contain' }}
+                                        />
+                                        <Typography variant="h6" sx={{ fontWeight: 700, mb: 1 }}>
+                                            {advantage.title}
+                                        </Typography>
+                                        <Typography variant="body2" color="text.secondary">
+                                            {advantage.description}
+                                        </Typography>
+                                    </Box>
                                 </MotionBox>
                             </Grid>
                         ))}

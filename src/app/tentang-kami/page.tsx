@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import { Container, Box, Typography, Grid, Stack } from '@mui/material';
 import { ABOUT_COMPANY, COMPANY_ADVANTAGES } from '@/data/company';
+import { Target } from 'lucide-react';
 
 export const metadata: Metadata = {
     title: 'Tentang Kami | PT. DELAPAN ANUGRAH SEJAHTERA',
@@ -13,7 +14,8 @@ export default function AboutPage() {
             {/* Hero Section */}
             <Box
                 sx={{
-                    py: 16,
+                    pt: 16,
+                    pb: 12,
                     background: 'linear-gradient(135deg, #1e3c96 0%, #152960 100%)',
                     color: 'white',
                 }}>
@@ -54,8 +56,7 @@ export default function AboutPage() {
                                 borderRadius: '8px',
                                 border: '1px solid',
                                 borderColor: 'divider',
-                            }}
-                        >
+                            }}>
                             <Typography variant="h6" sx={{ fontWeight: 700, mb: 3 }}>
                                 Informasi Cepat
                             </Typography>
@@ -102,7 +103,15 @@ export default function AboutPage() {
                             }}
                         >
                             <Typography variant="h5" sx={{ fontWeight: 700, mb: 2, color: 'primary.main' }}>
-                                🎯 Visi Kami
+                                <Box
+                                    component={"img"}
+                                    src="/goal.png"
+                                    alt="Vision Icon"
+                                    sx={{ width: 32, height: 32 }}
+                                />
+                                <Box component="span" sx={{ ml: 1 }}>
+                                    Visi Kami
+                                </Box>
                             </Typography>
                             <Typography variant="body1" sx={{ lineHeight: 1.8 }}>
                                 {ABOUT_COMPANY.vision}
@@ -120,7 +129,15 @@ export default function AboutPage() {
                             }}
                         >
                             <Typography variant="h5" sx={{ fontWeight: 700, mb: 2, color: 'warning.main' }}>
-                                🚀 Misi Kami
+                                <Box
+                                    component={"img"}
+                                    src="/graph.png"
+                                    alt="Mission Icon"
+                                    sx={{ width: 32, height: 32 }}
+                                />
+                                <Box component="span" sx={{ ml: 1 }}>
+                                    Misi Kami
+                                </Box>
                             </Typography>
                             <Typography variant="body1" sx={{ lineHeight: 1.8 }}>
                                 {ABOUT_COMPANY.mission}
@@ -139,6 +156,7 @@ export default function AboutPage() {
                             <Grid size={{ xs: 12, sm: 6, md: 3 }} key={idx}>
                                 <Box
                                     sx={{
+                                        "--grayscale": '100%',
                                         p: 3,
                                         backgroundColor: 'background.paper',
                                         borderRadius: '8px',
@@ -150,10 +168,20 @@ export default function AboutPage() {
                                             borderColor: 'primary.main',
                                             boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
                                             transform: 'translateY(-5px)',
+                                            "--grayscale": '0%',
                                         },
-                                    }}
-                                >
-                                    <Box sx={{ fontSize: '32px', mb: 2 }}>✓</Box>
+                                    }}>
+                                    <Box
+                                        component={"img"}
+                                        alt={`${value.title} Icon`}
+                                        src={value.image}
+                                        sx={{
+                                            width: 48,
+                                            height: 48,
+                                            filter: 'grayscale(var(--grayscale))',
+                                            transition: 'filter 0.3s ease',
+                                            mb: 2
+                                        }} />
                                     <Typography variant="h6" sx={{ fontWeight: 700, mb: 1 }}>
                                         {value.title}
                                     </Typography>
@@ -181,9 +209,17 @@ export default function AboutPage() {
                                         borderRadius: '8px',
                                         border: '1px solid',
                                         borderColor: 'divider',
-                                    }}
-                                >
-                                    <Box sx={{ fontSize: '40px', mb: 2 }}>{advantage.icon}</Box>
+                                    }}>
+                                    <Box
+                                        component={"img"}
+                                        alt={`${advantage.title} Icon`}
+                                        src={advantage.image}
+                                        sx={{
+                                            width: 48,
+                                            height: 48,
+                                            objectFit: 'contain',
+                                            mb: 2
+                                        }} />
                                     <Typography variant="h6" sx={{ fontWeight: 700, mb: 1 }}>
                                         {advantage.title}
                                     </Typography>

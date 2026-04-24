@@ -10,7 +10,8 @@ export default function ProjectsPage() {
             {/* Hero Section */}
             <Box
                 sx={{
-                    py: 8,
+                    pt: 16,
+                    pb: 12,
                     background: 'linear-gradient(135deg, #1e3c96 0%, #152960 100%)',
                     color: 'white',
                 }}
