@@ -50,8 +50,11 @@ export default function Theme({ children, disableCustomTheme, themeComponents }:
 	}, [disableCustomTheme, themeComponents, mode]);
 
 	useEffect(() => {
+		const storedMode = localStorage.getItem('mui-mode');
+		if (!storedMode) {
+			localStorage.setItem('mui-mode', 'light');
+		}
 		setMounted(true);
-		localStorage.setItem('mui-mode', 'light');
 	}, [])
 
 	if (!mounted) return null;
