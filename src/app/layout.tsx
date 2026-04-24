@@ -12,11 +12,14 @@ export const metadata: Metadata = {
         template: `%s | ${COMPANY_INFO.shortName}`,
     },
     description:
-        "PT DAS adalah perusahaan jasa konstruksi, infrastruktur, real estate, dan layanan bisnis di Indonesia. Solusi profesional, legal, dan berpengalaman untuk proyek Anda.",
+        `${COMPANY_INFO.name} adalah perusahaan jasa konstruksi, infrastruktur, real estate, dan layanan bisnis di Indonesia. Solusi profesional, legal, dan berpengalaman untuk proyek Anda.`,
     keywords: [
         "jasa konstruksi",
         "kontraktor indonesia",
         "jasa konstruksi riau",
+        "kontraktor riau",
+        "jasa konstruksi pekanbaru",
+        "jasa konstruksi siak",
         "kontraktor sipil",
         "jasa infrastruktur",
         "konstruksi gedung",
