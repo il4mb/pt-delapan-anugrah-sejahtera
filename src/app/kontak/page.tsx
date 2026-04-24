@@ -1,17 +1,6 @@
 'use client';
 
-import { useMemo, useState } from 'react';
-import {
-    Container,
-    Box,
-    Typography,
-    Grid,
-    TextField,
-    Button,
-    Stack,
-    Card,
-    CardContent,
-} from '@mui/material';
+import { Container, Box, Typography, Grid, Button, Stack, Card, CardContent, Chip } from '@mui/material';
 import Link from 'next/link';
 import { COMPANY_INFO } from '@/data/company';
 import EmailIcon from '@mui/icons-material/Email';
@@ -21,37 +10,7 @@ import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import { WhatsApp } from '@mui/icons-material';
 
 export default function ContactPage() {
-    const [formData, setFormData] = useState({
-        name: '',
-        email: '',
-        phone: '',
-        message: '',
-    });
-
-    const [submitted, setSubmitted] = useState(false);
-
-    const handleChange = (e: any) => {
-        const { name, value } = e.target;
-        setFormData((prev) => ({
-            ...prev,
-            [name]: value,
-        }));
-    };
-
-    const handleSubmit = (e: any) => {
-        e.preventDefault();
-
-        // Open email client with pre-filled content
-        const subject = `Pesan dari ${formData.name} - PT DAS`;
-        const body = `Nama: ${formData.name}\nEmail: ${formData.email}\nNo. Telepon: ${formData.phone}\n\nPesan:\n${formData.message}`;
-        window.location.href = `mailto:${COMPANY_INFO.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
-        setSubmitted(true);
-        setTimeout(() => {
-            setFormData({ name: '', email: '', phone: '', message: '' });
-            setSubmitted(false);
-        }, 3000);
-    };
+    const whatsappNumber = COMPANY_INFO.whatsapp.replace(/\D/g, '');
 
     return (
         <Box>
@@ -76,92 +35,109 @@ export default function ContactPage() {
             {/* Contact Section */}
             <Container maxWidth="lg" sx={{ py: 10 }}>
                 <Grid container spacing={6}>
-                    {/* Contact Form */}
+                    {/* Contact Intro & Quick Actions */}
                     <Grid size={{ xs: 12, md: 6 }}>
-                        <Box>
-                            <Typography variant="h5" sx={{ fontWeight: 700, mb: 3 }}>
-                                Kirim Pesan Kepada Kami
-                            </Typography>
-
-                            <Box component="form" onSubmit={handleSubmit} noValidate>
-                                <Stack spacing={3}>
-                                    <TextField
-                                        fullWidth
-                                        label="Nama Lengkap"
-                                        name="name"
-                                        value={formData.name}
-                                        onChange={handleChange}
-                                        variant="outlined"
-                                        required
-                                        size="medium"
-                                    />
-
-                                    <TextField
-                                        fullWidth
-                                        label="Email"
-                                        name="email"
-                                        type="email"
-                                        value={formData.email}
-                                        onChange={handleChange}
-                                        variant="outlined"
-                                        required
-                                    />
-
-                                    <TextField
-                                        fullWidth
-                                        label="Nomor Telepon"
-                                        name="phone"
-                                        value={formData.phone}
-                                        onChange={handleChange}
-                                        variant="outlined"
-                                        required
-                                    />
-
-                                    <TextField
-                                        fullWidth
-                                        label="Pesan"
-                                        name="message"
-                                        value={formData.message}
-                                        onChange={handleChange}
-                                        variant="outlined"
-                                        multiline
-                                        rows={6}
-                                        required
-                                    />
-
-                                    <Button
-                                        type="submit"
-                                        variant="contained"
-                                        color="primary"
-                                        size="large"
-                                        sx={{
-                                            py: 2,
-                                            fontWeight: 600,
-                                            textTransform: 'none',
-                                            fontSize: '16px',
-                                        }}
-                                    >
-                                        Kirim Pesan
-                                    </Button>
-
-                                    {submitted && (
-                                        <Box
-                                            sx={{
-                                                p: 2,
-                                                backgroundColor: 'success.light',
-                                                borderRadius: '8px',
-                                                color: 'success.dark',
-                                            }}
+                        <Stack spacing={3}>
+                            <Card
+                                sx={{
+                                    border: '1px solid',
+                                    borderColor: 'divider',
+                                    background: 'linear-gradient(140deg, rgba(30, 60, 150, 0.08), rgba(21, 41, 96, 0.02))',
+                                }}
+                            >
+                                <CardContent>
+                                    <Typography variant="h5" sx={{ fontWeight: 700, mb: 2 }}>
+                                        Konsultasi Langsung
+                                    </Typography>
+                                    <Typography color="text.secondary" sx={{ mb: 3 }}>
+                                        Untuk saat ini kami fokus melayani lewat kanal langsung agar respon lebih cepat.
+                                        Pilih cara yang paling nyaman untuk Anda.
+                                    </Typography>
+                                    <Stack spacing={1.5}>
+                                        <Button
+                                            component="a"
+                                            href={`https://wa.me/${whatsappNumber}`}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            variant="contained"
+                                            color="success"
+                                            startIcon={<WhatsApp />}
+                                            sx={{ textTransform: 'none', py: 1.5, fontWeight: 600 }}
                                         >
-                                            <Typography variant="body2">
-                                                ✓ Terima kasih! Pesan Anda telah dikirim. Tim kami akan menghubungi Anda
-                                                segera.
+                                            Chat via WhatsApp
+                                        </Button>
+                                        <Button
+                                            component="a"
+                                            href={`tel:${COMPANY_INFO.phone}`}
+                                            variant="outlined"
+                                            color="primary"
+                                            startIcon={<PhoneIcon />}
+                                            sx={{ textTransform: 'none', py: 1.5, fontWeight: 600 }}
+                                        >
+                                            Telepon Sekarang
+                                        </Button>
+                                        <Button
+                                            component="a"
+                                            href={`mailto:${COMPANY_INFO.email}`}
+                                            variant="outlined"
+                                            color="primary"
+                                            startIcon={<EmailIcon />}
+                                            sx={{ textTransform: 'none', py: 1.5, fontWeight: 600 }}
+                                        >
+                                            Kirim Email
+                                        </Button>
+                                    </Stack>
+                                </CardContent>
+                            </Card>
+
+                            <Card sx={{ border: '1px solid', borderColor: 'divider' }}>
+                                <CardContent>
+                                    <Typography variant="h6" sx={{ fontWeight: 700, mb: 2 }}>
+                                        Alur Konsultasi Singkat
+                                    </Typography>
+                                    <Stack spacing={2}>
+                                        <Box>
+                                            <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
+                                                1. Ceritakan kebutuhan proyek
+                                            </Typography>
+                                            <Typography variant="body2" color="text.secondary">
+                                                Sampaikan lingkup pekerjaan, timeline, dan lokasi proyek Anda.
                                             </Typography>
                                         </Box>
-                                    )}
-                                </Stack>
-                            </Box>
-                        </Box>
+                                        <Box>
+                                            <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
+                                                2. Diskusi teknis bersama tim
+                                            </Typography>
+                                            <Typography variant="body2" color="text.secondary">
+                                                Kami bantu rekomendasi layanan dan rencana eksekusi yang paling efisien.
+                                            </Typography>
+                                        </Box>
+                                        <Box>
+                                            <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
+                                                3. Mulai kolaborasi
+                                            </Typography>
+                                            <Typography variant="body2" color="text.secondary">
+                                                Setelah sepakat, tim kami akan menyiapkan langkah implementasi secara cepat.
+                                            </Typography>
+                                        </Box>
+                                    </Stack>
+                                </CardContent>
+                            </Card>
+
+                            <Card sx={{ border: '1px solid', borderColor: 'divider' }}>
+                                <CardContent>
+                                    <Typography variant="h6" sx={{ fontWeight: 700, mb: 2 }}>
+                                        Keunggulan Layanan Kami
+                                    </Typography>
+                                    <Stack direction="row" spacing={1} useFlexGap sx={{ flexWrap: 'wrap' }}>
+                                        <Chip label="Respon Cepat" color="primary" variant="outlined" />
+                                        <Chip label="Tim Berpengalaman" color="primary" variant="outlined" />
+                                        <Chip label="Pendekatan Fleksibel" color="primary" variant="outlined" />
+                                        <Chip label="Komunikasi Transparan" color="primary" variant="outlined" />
+                                    </Stack>
+                                </CardContent>
+                            </Card>
+                        </Stack>
                     </Grid>
 
                     {/* Contact Information */}
@@ -178,7 +154,11 @@ export default function ContactPage() {
                                     },
                                 }}
                             >
-                                <CardContent>
+                                <CardContent sx={{
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    gap: 3,
+                                }}>
                                     <Box sx={{ display: 'flex', gap: 2 }}>
                                         <LocationOnIcon sx={{ color: 'primary.main', fontSize: 28 }} />
                                         <Box>
@@ -190,21 +170,7 @@ export default function ContactPage() {
                                             </Typography>
                                         </Box>
                                     </Box>
-                                </CardContent>
-                            </Card>
-
-                            {/* Info Card - Telepon */}
-                            <Card
-                                sx={{
-                                    border: '1px solid',
-                                    borderColor: 'divider',
-                                    transition: 'all 0.3s ease',
-                                    '&:hover': {
-                                        boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
-                                    },
-                                }}
-                            >
-                                <CardContent>
+                           
                                     <Box sx={{ display: 'flex', gap: 2 }}>
                                         <PhoneIcon sx={{ color: 'warning.main', fontSize: 28 }} />
                                         <Box>
@@ -221,21 +187,6 @@ export default function ContactPage() {
                                             </Typography>
                                         </Box>
                                     </Box>
-                                </CardContent>
-                            </Card>
-
-                            {/* Info Card - Email */}
-                            <Card
-                                sx={{
-                                    border: '1px solid',
-                                    borderColor: 'divider',
-                                    transition: 'all 0.3s ease',
-                                    '&:hover': {
-                                        boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
-                                    },
-                                }}
-                            >
-                                <CardContent>
                                     <Box sx={{ display: 'flex', gap: 2 }}>
                                         <EmailIcon sx={{ color: 'error.main', fontSize: 28 }} />
                                         <Box>
@@ -252,21 +203,6 @@ export default function ContactPage() {
                                             </Typography>
                                         </Box>
                                     </Box>
-                                </CardContent>
-                            </Card>
-
-                            {/* Info Card - WhatsApp */}
-                            <Card
-                                sx={{
-                                    border: '1px solid',
-                                    borderColor: 'divider',
-                                    transition: 'all 0.3s ease',
-                                    '&:hover': {
-                                        boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
-                                    },
-                                }}
-                            >
-                                <CardContent>
                                     <Box sx={{ display: 'flex', gap: 2 }}>
                                         <WhatsApp sx={{ color: 'success.main', fontSize: 28 }} />
                                         <Box>
@@ -275,7 +211,7 @@ export default function ContactPage() {
                                             </Typography>
                                             <Typography
                                                 component="a"
-                                                href={`https://wa.me/${COMPANY_INFO.whatsapp.replace(/\D/g, '')}`}
+                                                href={`https://wa.me/${whatsappNumber}`}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                                 variant="body2"

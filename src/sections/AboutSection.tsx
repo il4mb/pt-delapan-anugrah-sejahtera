@@ -40,12 +40,14 @@ export default function AboutSection() {
                             >
                                 <Box
                                     component="img"
-                                    src="https://via.placeholder.com/500?text=Company+Profile"
+                                    src="/2151589535.jpg"
                                     alt="Company Profile"
                                     sx={{
                                         width: '100%',
                                         height: '100%',
                                         objectFit: 'cover',
+                                        objectPosition: 'left bottom',
+                                        
                                     }}
                                 />
                             </Box>
@@ -58,16 +60,14 @@ export default function AboutSection() {
                             initial={{ opacity: 0, x: 50 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.8 }}
-                            viewport={{ once: true }}
-                        >
+                            viewport={{ once: true }}>
                             <Typography
                                 variant="overline"
                                 sx={{
                                     color: 'warning.main',
                                     fontWeight: 700,
                                     letterSpacing: '2px',
-                                }}
-                            >
+                                }}>
                                 TENTANG KAMI
                             </Typography>
                             <Typography variant="h3" sx={{ fontWeight: 700, my: 2 }}>
