@@ -1,16 +1,12 @@
 "use client"
-import * as React from "react";
 import { alpha, Theme, Components } from "@mui/material/styles";
 import { toggleButtonGroupClasses } from "@mui/material/ToggleButtonGroup";
 import { toggleButtonClasses } from "@mui/material/ToggleButton";
-// import CheckBoxOutlineBlankRoundedIcon from "@mui/icons-material/CheckBoxOutlineBlankRounded";
-// import CheckRoundedIcon from "@mui/icons-material/CheckRounded";
-// import RemoveRoundedIcon from "@mui/icons-material/RemoveRounded";
-import { gray, green, orange, purple, red } from "../themePrimitives";
+import { gray, green, navy, orange, purple, red } from "../themePrimitives";
 import { blue } from "@mui/material/colors";
-import { Circle, CircleCheck, CircleX, Square, SquareCheck } from "lucide-react";
+import { Square, SquareCheck } from "lucide-react";
 
-const colors = { primary: purple, secondary: gray, success: green, error: red, warning: orange, info: blue } as const;
+const colors = { primary: navy, secondary: gray, success: green, error: red, warning: orange, info: blue } as const;
 type ColorName = keyof typeof colors;
 const colorsName = Object.keys(colors) as ColorName[];
 

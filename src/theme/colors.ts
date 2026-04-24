@@ -1,6 +1,5 @@
 import { blue } from "@mui/material/colors";
 import { gray, green, orange, red, navy } from "./themePrimitives";
-import { Theme } from "@mui/material";
 
 const colors = { primary: navy, secondary: gray, success: green, error: red, warning: orange, info: blue } as const;
 
