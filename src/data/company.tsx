@@ -1,3 +1,4 @@
+
 // Company Information
 export const COMPANY_INFO = {
   name: 'PT. DELAPAN ANUGRAH SEJAHTERA',
@@ -20,7 +21,7 @@ export const HERO_SECTION = {
 
 export const STATISTICS = [
   {
-    icon: '🏢',
+    icon: <Factory />,
     number: '15+',
     label: 'Sektor Usaha',
     description: 'Diversifikasi bisnis yang komprehensif',

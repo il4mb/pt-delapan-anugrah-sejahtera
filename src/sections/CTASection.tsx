@@ -7,7 +7,6 @@ import { buttonHoverVariant } from '@/utils/animations';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 const MotionBox = motion(Box);
-const MotionButton = motion(Button);
 
 export default function CTASection() {
   const theme = useTheme();
@@ -80,17 +79,13 @@ export default function CTASection() {
           </Typography>
 
           <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} sx={{ justifyContent: "center" }}>
-            <MotionButton
+            <Button
               component={Link}
               href="/kontak"
               variant="contained"
               color="warning"
               size="large"
               endIcon={<ArrowForwardIcon />}
-              initial="initial"
-              whileHover="hover"
-              whileTap="tap"
-              variants={buttonHoverVariant}
               sx={{
                 px: 4,
                 py: 2,
@@ -98,12 +93,16 @@ export default function CTASection() {
                 fontWeight: 600,
                 textTransform: 'none',
                 borderRadius: '8px',
+                transition: 'all 0.3s ease',
+                '&:hover': {
+                  transform: 'scale(1.02)',
+                },
               }}
             >
               Konsultasi Gratis Sekarang
-            </MotionButton>
+            </Button>
 
-            <MotionButton
+            <Button
               component={Link}
               href="/layanan"
               variant="outlined"
@@ -118,18 +117,16 @@ export default function CTASection() {
                 borderColor: 'white',
                 color: 'white',
                 borderWidth: 2,
+                transition: 'all 0.3s ease',
                 '&:hover': {
-                  backgroundColor:  alpha('#fff', 0.1),
+                  backgroundColor: alpha('#fff', 0.1),
                   borderColor: 'white',
+                  transform: 'scale(1.02)',
                 },
               }}
-              initial="initial"
-              whileHover="hover"
-              whileTap="tap"
-              variants={buttonHoverVariant}
             >
               Pelajari Layanan
-            </MotionButton>
+            </Button>
           </Stack>
         </MotionBox>
       </Container>

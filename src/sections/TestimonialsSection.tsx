@@ -48,7 +48,7 @@ export default function TestimonialsSection() {
         {/* Testimonials Grid */}
         <Grid container spacing={4}>
           {TESTIMONIALS.map((testimonial, idx) => (
-            <Grid item xs={12} md={4} key={testimonial.id}>
+            <Grid size={{ xs: 12, md: 4 }} key={testimonial.id}>
               <MotionBox
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
