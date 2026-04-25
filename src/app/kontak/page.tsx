@@ -13,7 +13,7 @@ export default function ContactPage() {
     const whatsappNumber = COMPANY_INFO.whatsapp.replace(/\D/g, '');
 
     return (
-        <Box>
+        <Box sx={{ mb: 10 }}>
             {/* Hero Section */}
             <Box
                 sx={{
@@ -169,7 +169,7 @@ export default function ContactPage() {
                                             </Typography>
                                         </Box>
                                     </Box>
-                           
+
                                     <Box sx={{ display: 'flex', gap: 2 }}>
                                         <PhoneIcon sx={{ color: 'warning.main', fontSize: 28 }} />
                                         <Box>

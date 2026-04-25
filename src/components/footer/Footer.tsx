@@ -48,9 +48,7 @@ export default function Footer() {
                 backgroundColor: theme.palette.primary.dark,
                 color: 'white',
                 py: 8,
-                mt: 10,
-            }}
-        >
+            }}>
             <Container maxWidth="lg">
                 {/* Main Footer Content */}
                 <Grid container spacing={4} sx={{ mb: 6 }}>

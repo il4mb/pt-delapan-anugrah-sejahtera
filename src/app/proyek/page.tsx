@@ -7,7 +7,7 @@ import ProjectCard from '@/components/cards/ProjectCard';
 
 export default function ProjectsPage() {
     return (
-        <Box>
+        <Box sx={{ mb: 10 }}>
             {/* Hero Section */}
             <Box
                 sx={{

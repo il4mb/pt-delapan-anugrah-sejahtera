@@ -13,31 +13,12 @@ export default function CTASection() {
     return (
         <Box
             sx={{
-                py: 10,
+                pt: 15,
+                pb: 20,
                 background: `linear-gradient(135deg, ${theme.palette.primary.main} 0%, ${theme.palette.primary.dark} 100%)`,
                 position: 'relative',
                 overflow: 'hidden',
             }}>
-            <MotionBox
-                animate={{
-                    opacity: [0.1, 0.2, 0.1],
-                }}
-                transition={{
-                    duration: 5,
-                    repeat: Infinity,
-                }}
-                sx={{
-                    position: 'absolute',
-                    width: '400px',
-                    height: '400px',
-                    borderRadius: '50%',
-                    background: `radial-gradient(circle, ${theme.palette.warning.main}, transparent)`,
-                    top: '-100px',
-                    left: '-100px',
-                    zIndex: 0,
-                }}
-            />
-
             <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
                 <MotionBox
                     initial={{ opacity: 0, y: 30 }}

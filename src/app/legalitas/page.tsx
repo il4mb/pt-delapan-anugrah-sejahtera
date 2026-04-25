@@ -15,7 +15,7 @@ import VerifiedIcon from '@mui/icons-material/Verified';
 
 export default function LegalityPage() {
     return (
-        <Box>
+        <Box sx={{ mb: 10 }}>
             {/* Hero Section */}
             <Box
                 sx={{

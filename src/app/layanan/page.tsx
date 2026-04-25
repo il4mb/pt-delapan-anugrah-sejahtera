@@ -6,7 +6,7 @@ import ServiceCardComponent from '@/components/cards/ServiceCard';
 
 export default function ServicesPage() {
     return (
-        <Box>
+        <Box sx={{ mb: 10 }}>
             {/* Hero Section */}
             <Box
                 sx={{
@@ -14,8 +14,7 @@ export default function ServicesPage() {
                     pb: 12,
                     background: 'linear-gradient(135deg, #1e3c96 0%, #152960 100%)',
                     color: 'white',
-                }}
-            >
+                }}>
                 <Container maxWidth="lg">
                     <Typography component="h1" variant="h3" sx={{ fontWeight: 700, mb: 2 }}>
                         Layanan Kami
