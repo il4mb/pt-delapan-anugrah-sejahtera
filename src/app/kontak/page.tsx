@@ -43,8 +43,7 @@ export default function ContactPage() {
                                     border: '1px solid',
                                     borderColor: 'divider',
                                     background: 'linear-gradient(140deg, rgba(30, 60, 150, 0.08), rgba(21, 41, 96, 0.02))',
-                                }}
-                            >
+                                }}>
                                 <CardContent>
                                     <Typography variant="h5" sx={{ fontWeight: 700, mb: 2 }}>
                                         Konsultasi Langsung

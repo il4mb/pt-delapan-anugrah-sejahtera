@@ -15,8 +15,7 @@ export default function ProjectsPage() {
                     pb: 12,
                     background: 'linear-gradient(135deg, #1e3c96 0%, #152960 100%)',
                     color: 'white',
-                }}
-            >
+                }}>
                 <Container maxWidth="lg">
                     <Typography component="h1" variant="h3" sx={{ fontWeight: 700, mb: 2 }}>
                         Proyek & Portfolio
@@ -46,8 +45,7 @@ export default function ProjectsPage() {
                         borderRadius: '12px',
                         color: 'white',
                         textAlign: 'center',
-                    }}
-                >
+                    }}>
                     <Grid container spacing={4}>
                         <Grid size={{ xs: 12, sm: 6, md: 3 }}>
                             <Box>
@@ -102,8 +100,7 @@ export default function ProjectsPage() {
                             fontSize: '16px',
                             fontWeight: 600,
                             borderRadius: '8px',
-                        }}
-                    >
+                        }}>
                         Hubungi Tim Kami
                     </Button>
                 </Box>

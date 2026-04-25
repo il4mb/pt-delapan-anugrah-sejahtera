@@ -10,7 +10,7 @@ import {
     Chip,
     Stack,
 } from '@mui/material';
-import { LEGALITY } from '@/data/company';
+import { COMPANY_INFO, LEGALITY } from '@/data/company';
 import VerifiedIcon from '@mui/icons-material/Verified';
 
 export default function LegalityPage() {
@@ -50,8 +50,7 @@ export default function LegalityPage() {
                                         borderColor: 'primary.main',
                                         boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
                                     },
-                                }}
-                            >
+                                }}>
                                 <CardContent>
                                     <Box sx={{ display: 'flex', gap: 2, alignItems: 'flex-start', mb: 2 }}>
                                         <VerifiedIcon sx={{ color: 'success.main', fontSize: 28, mt: 0.5 }} />
@@ -72,22 +71,6 @@ export default function LegalityPage() {
                                         {item.description}
                                     </Typography>
 
-                                    <Box
-                                        sx={{
-                                            p: 2,
-                                            backgroundColor: 'background.default',
-                                            borderRadius: '6px',
-                                            borderLeft: '4px solid',
-                                            borderLeftColor: 'primary.main',
-                                        }}
-                                    >
-                                        <Typography variant="caption" sx={{ opacity: 0.7 }}>
-                                            NOMOR DOKUMEN
-                                        </Typography>
-                                        <Typography variant="body2" sx={{ fontWeight: 600, mt: 0.5 }}>
-                                            {item.document}
-                                        </Typography>
-                                    </Box>
                                 </CardContent>
                             </Card>
                         </Grid>
@@ -169,12 +152,12 @@ export default function LegalityPage() {
                     <Typography variant="body1" sx={{ mb: 3, color: 'text.secondary' }}>
                         Untuk mengakses dokumen legal perusahaan secara lengkap, silakan hubungi tim kami
                     </Typography>
-                    <Stack spacing={2} sx={{ display: 'flex', justifyContent: 'center' }}>
+                    <Stack spacing={1} sx={{ display: 'flex', justifyContent: 'center' }}>
                         <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                            📧 Email: info@ptdas.co.id
+                            Email: {COMPANY_INFO.email}
                         </Typography>
                         <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                            📞 Telepon: +62 (0)761 123 456
+                            Telepon: {COMPANY_INFO.phone}
                         </Typography>
                     </Stack>
                 </Box>
