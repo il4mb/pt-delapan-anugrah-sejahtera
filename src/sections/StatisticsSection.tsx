@@ -4,7 +4,7 @@ import { Box, Container, Stack, Typography, useTheme } from '@mui/material';
 import { motion } from 'motion/react';
 import { STATISTICS } from '@/data/company';
 
-const MotionBox = motion(Box);
+const MotionBox = motion.create(Box);
 
 export default function StatisticsSection() {
     const theme = useTheme();

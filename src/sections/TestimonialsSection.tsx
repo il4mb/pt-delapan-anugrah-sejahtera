@@ -5,7 +5,7 @@ import { motion } from 'motion/react';
 import { TESTIMONIALS } from '@/data/company';
 import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
 
-const MotionBox = motion(Box);
+const MotionBox = motion.create(Box);
 
 export default function TestimonialsSection() {
     const theme = useTheme();

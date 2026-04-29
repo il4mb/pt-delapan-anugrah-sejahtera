@@ -1,5 +1,9 @@
 import { BadgeCheck, Factory, Star, UserStar } from "lucide-react";
 
+const foundedDate = new Date('2018-03-06');
+const currentDate = new Date();
+const ageInYears = currentDate.getFullYear() - foundedDate.getFullYear() - (currentDate.getMonth() < foundedDate.getMonth() || (currentDate.getMonth() === foundedDate.getMonth() && currentDate.getDate() < foundedDate.getDate()) ? 1 : 0);
+
 // Company Information
 export const COMPANY_INFO = {
     name: 'PT. DELAPAN ANUGRAH SEJAHTERA',
@@ -10,11 +14,15 @@ export const COMPANY_INFO = {
     phone: '+62 822 8801 4636',
     whatsapp: '+62 822 8801 4636',
     email:[
+        'admin@delapan-anugrah-sejahtera.com',
         'ptdelapananugrahsejahtera@gmail.com',
-        'delapananugerahsejahter@gmail.com'
+        'delapananugerahsejahtera@gmail.com'
     ],
     website: 'https://delapan-anugrah-sejahtera.com',
+    foundAt: foundedDate.toISOString().split('T')[0], // Format: YYYY-MM-DD
+    ageInYears: ageInYears
 };
+
 
 export const HERO_SECTION = {
     mainHeadline: 'Solusi Konstruksi & Bisnis Terpercaya untuk Masa Depan Indonesia',
@@ -44,7 +52,7 @@ export const STATISTICS = [
     },
     {
         icon: <Star size={50} />,
-        number: '20+',
+        number: `${ageInYears}+`,
         label: 'Tahun Pengalaman',
         description: 'Kepercayaan industri yang terbukti',
     },
@@ -53,7 +61,7 @@ export const STATISTICS = [
 export const ABOUT_COMPANY = {
     title: 'Tentang PT. DELAPAN ANUGRAH SEJAHTERA',
     description: `PT. DELAPAN ANUGRAH SEJAHTERA adalah perusahaan profesional yang berkomitmen untuk menyediakan 
-solusi bisnis terpadu di berbagai sektor. Dengan pengalaman lebih dari 20 tahun, kami telah membangun 
+solusi bisnis terpadu di berbagai sektor. Dengan pengalaman lebih dari ${ageInYears} tahun, kami telah membangun 
 reputasi sebagai mitra terpercaya bagi klien korporat dan pemerintah.`,
     mission:
         'Menjadi perusahaan pilihan utama dalam memberikan solusi konstruksi, perdagangan, dan jasa bisnis berkualitas tinggi dengan integritas penuh.',

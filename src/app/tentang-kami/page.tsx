@@ -1,8 +1,6 @@
 'use client';
-
 import { Container, Box, Typography, Grid, Stack } from '@mui/material';
-import { ABOUT_COMPANY, COMPANY_ADVANTAGES } from '@/data/company';
-import { Target } from 'lucide-react';
+import { ABOUT_COMPANY, COMPANY_ADVANTAGES, COMPANY_INFO } from '@/data/company';
 
 export default function AboutPage() {
     return (
@@ -38,7 +36,7 @@ export default function AboutPage() {
                                 {ABOUT_COMPANY.description}
                             </Typography>
                             <Typography variant="body1" sx={{ lineHeight: 1.8, color: 'text.secondary' }}>
-                                Dengan pengalaman lebih dari 20 tahun di industri, PT. DELAPAN ANUGRAH SEJAHTERA
+                                Dengan pengalaman lebih dari {COMPANY_INFO.ageInYears} tahun di industri, PT. DELAPAN ANUGRAH SEJAHTERA
                                 terus berkembang dan berinovasi untuk memberikan solusi terbaik bagi semua klien
                                 kami. Komitmen kami adalah kesuksesan Anda.
                             </Typography>
@@ -62,7 +60,7 @@ export default function AboutPage() {
                                         Tahun Berdiri
                                     </Typography>
                                     <Typography variant="h6" sx={{ fontWeight: 600 }}>
-                                        2003
+                                        {COMPANY_INFO.foundAt.split('-')[0]}
                                     </Typography>
                                 </Box>
                                 <Box>

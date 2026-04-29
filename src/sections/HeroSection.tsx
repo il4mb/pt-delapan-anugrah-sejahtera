@@ -154,8 +154,7 @@ export default function HeroSection() {
                                     backgroundColor: alpha(theme.palette.warning.main, 0.1),
                                     transform: 'scale(1.05)',
                                 },
-                            }}
-                        >
+                            }}>
                             {HERO_SECTION.secondaryCTA}
                         </Button>
                     </MotionBox>

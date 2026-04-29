@@ -1,10 +1,8 @@
 'use client';
 
 import { Card, CardContent, Box, Typography, useTheme, alpha } from '@mui/material';
-import { SVGProps } from 'react';
 import { motion } from 'motion/react';
 import { cardHoverVariant } from '@/utils/animations';
-import Image from 'next/image';
 
 interface ServiceCardProps {
     title: string;
@@ -14,7 +12,7 @@ interface ServiceCardProps {
     details?: string;
 }
 
-export const ServiceCard = motion(Card);
+export const ServiceCard = motion.create(Card);
 
 export default function ServiceCardComponent({
     title,

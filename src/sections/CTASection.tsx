@@ -5,7 +5,7 @@ import { motion } from 'motion/react';
 import Link from 'next/link';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
-const MotionBox = motion(Box);
+const MotionBox = motion.create(Box);
 
 export default function CTASection() {
     const theme = useTheme();
