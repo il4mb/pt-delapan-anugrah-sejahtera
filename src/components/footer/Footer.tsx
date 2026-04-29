@@ -205,14 +205,16 @@ export default function Footer() {
                                     <Typography variant="caption" sx={{ opacity: 0.8 }}>
                                         Email
                                     </Typography>
-                                    <MuiLink
-                                        href={`mailto:${COMPANY_INFO.email}`}
-                                        sx={{ color: 'white', textDecoration: 'none', display: 'block' }}
-                                    >
-                                        <Typography variant="body2" sx={{ wordBreak: 'break-all' }}>
-                                            {COMPANY_INFO.email}
-                                        </Typography>
-                                    </MuiLink>
+                                    {COMPANY_INFO.email.map((email, index) => (
+                                        <MuiLink
+                                            key={index}
+                                            href={`mailto:${email}`}
+                                            sx={{ color: 'white', textDecoration: 'none', display: 'block' }}>
+                                            <Typography variant="body2" sx={{ wordBreak: 'break-all' }}>
+                                                {email}
+                                            </Typography>
+                                        </MuiLink>
+                                    ))}
                                 </Box>
                             </Box>
                         </Stack>

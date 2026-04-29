@@ -154,7 +154,7 @@ export default function LegalityPage() {
                     </Typography>
                     <Stack spacing={1} sx={{ display: 'flex', justifyContent: 'center' }}>
                         <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                            Email: {COMPANY_INFO.email}
+                            Email: {COMPANY_INFO.email.join(', ')}
                         </Typography>
                         <Typography variant="body2" sx={{ color: 'text.secondary' }}>
                             Telepon: {COMPANY_INFO.phone}

@@ -9,7 +9,10 @@ export const COMPANY_INFO = {
     location: 'Kabupaten Siak, Riau, Indonesia',
     phone: '+62 822 8801 4636',
     whatsapp: '+62 822 8801 4636',
-    email: 'delapananugerahsejahter@gmail.com',
+    email:[
+        'ptdelapananugrahsejahtera@gmail.com',
+        'delapananugerahsejahter@gmail.com'
+    ],
     website: 'https://delapan-anugrah-sejahtera.com',
 };
 
@@ -294,13 +297,13 @@ export const LEGALITY = [
         document: 'IUT No. 789/2023',
         status: 'Aktif',
     },
-    {
-        id: 6,
-        title: 'Sertifikat ISO',
-        description: 'Sertifikasi ISO 9001:2015 - Quality Management',
-        document: 'ISO Cert: QMS-2023-12345',
-        status: 'Terdaftar',
-    },
+    // {
+    //     id: 6,
+    //     title: 'Sertifikat ISO',
+    //     description: 'Sertifikasi ISO 9001:2015 - Quality Management',
+    //     document: 'ISO Cert: QMS-2023-12345',
+    //     status: 'Terdaftar',
+    // },
 ];
 
 export const COMPANY_ADVANTAGES = [

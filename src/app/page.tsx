@@ -17,7 +17,7 @@ export default function Home() {
         url: COMPANY_INFO.website,
         logo: `${COMPANY_INFO.website}/logo.png`,
         description: COMPANY_INFO.description,
-        email: COMPANY_INFO.email,
+        email: COMPANY_INFO.email[0],
         telephone: COMPANY_INFO.phone,
         address: {
             '@type': 'PostalAddress',
@@ -35,7 +35,7 @@ export default function Home() {
         url: COMPANY_INFO.website,
         image: `${COMPANY_INFO.website}/logo.png`,
         telephone: COMPANY_INFO.phone,
-        email: COMPANY_INFO.email,
+        email: COMPANY_INFO.email[0],
         areaServed: 'Indonesia',
         address: {
             '@type': 'PostalAddress',

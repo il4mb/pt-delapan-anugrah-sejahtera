@@ -61,8 +61,7 @@ export default function ContactPage() {
                                             variant="contained"
                                             color="success"
                                             startIcon={<WhatsApp />}
-                                            sx={{ textTransform: 'none', py: 1.5, fontWeight: 600 }}
-                                        >
+                                            sx={{ textTransform: 'none', py: 1.5, fontWeight: 600 }}>
                                             Chat via WhatsApp
                                         </Button>
                                         <Button
@@ -71,18 +70,16 @@ export default function ContactPage() {
                                             variant="outlined"
                                             color="primary"
                                             startIcon={<PhoneIcon />}
-                                            sx={{ textTransform: 'none', py: 1.5, fontWeight: 600 }}
-                                        >
+                                            sx={{ textTransform: 'none', py: 1.5, fontWeight: 600 }}>
                                             Telepon Sekarang
                                         </Button>
                                         <Button
                                             component="a"
-                                            href={`mailto:${COMPANY_INFO.email}`}
+                                            href={`mailto:${COMPANY_INFO.email[0]}`}
                                             variant="outlined"
                                             color="primary"
                                             startIcon={<EmailIcon />}
-                                            sx={{ textTransform: 'none', py: 1.5, fontWeight: 600 }}
-                                        >
+                                            sx={{ textTransform: 'none', py: 1.5, fontWeight: 600 }}>
                                             Kirim Email
                                         </Button>
                                     </Stack>
@@ -151,8 +148,7 @@ export default function ContactPage() {
                                     '&:hover': {
                                         boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
                                     },
-                                }}
-                            >
+                                }}>
                                 <CardContent sx={{
                                     display: 'flex',
                                     flexDirection: 'column',
@@ -180,8 +176,7 @@ export default function ContactPage() {
                                                 component={Link}
                                                 href={`tel:${COMPANY_INFO.phone}`}
                                                 variant="body2"
-                                                sx={{ textDecoration: 'none', color: 'primary.main' }}
-                                            >
+                                                sx={{ textDecoration: 'none', color: 'primary.main' }}>
                                                 {COMPANY_INFO.phone}
                                             </Typography>
                                         </Box>
@@ -192,14 +187,18 @@ export default function ContactPage() {
                                             <Typography variant="subtitle2" sx={{ fontWeight: 700, mb: 1 }}>
                                                 Email
                                             </Typography>
-                                            <Typography
-                                                component={Link}
-                                                href={`mailto:${COMPANY_INFO.email}`}
-                                                variant="body2"
-                                                sx={{ textDecoration: 'none', color: 'primary.main', wordBreak: 'break-all' }}
-                                            >
-                                                {COMPANY_INFO.email}
-                                            </Typography>
+                                            <Stack spacing={0.5}>
+                                                {COMPANY_INFO.email.map((email, index) => (
+                                                    <Typography
+                                                        key={index}
+                                                        component={Link}
+                                                        href={`mailto:${email}`}
+                                                        variant="body2"
+                                                        sx={{ textDecoration: 'none', color: 'primary.main', wordBreak: 'break-all' }}> 
+                                                        {email}
+                                                    </Typography>
+                                                ))}
+                                            </Stack>
                                         </Box>
                                     </Box>
                                     <Box sx={{ display: 'flex', gap: 2 }}>
@@ -214,8 +213,7 @@ export default function ContactPage() {
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                                 variant="body2"
-                                                sx={{ textDecoration: 'none', color: 'success.main' }}
-                                            >
+                                                sx={{ textDecoration: 'none', color: 'success.main' }}>
                                                 {COMPANY_INFO.whatsapp}
                                             </Typography>
                                         </Box>
